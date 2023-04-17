@@ -12,14 +12,16 @@ import Models.Palavra;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
         Palavra p = new Palavra();
-        String palavra = p.GerarPalavra();
-        String adivinhada = p.Misterio();
+        String palavra = p.GerarPalavra().toUpperCase();
+        String adivinhada = p.QuantAspas();
+        String dica = p.GerarDica();
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
         lblPalavra.setText(adivinhada);
+        lblDica.setText(dica);
     }
 
     /**
@@ -31,19 +33,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        txtResposta = new javax.swing.JTextField();
+        lblDica = new javax.swing.JLabel();
+        lblMensagem = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblPalavra = new javax.swing.JLabel();
-        txtResposta = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        lblMensagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Palavra:");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Interrogacao.png"))); // NOI18N
 
-        lblPalavra.setText("jLabel2");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(72, 72, 72))
+        );
 
-        txtResposta.setText("Uma letra Aqui!");
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 2, 36)); // NOI18N
+        jLabel3.setText("Adivinhe a Palavra!");
 
         jButton1.setText("Clique Aqui");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,39 +74,63 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        txtResposta.setText("Letra Aqui!");
+
+        lblDica.setText("<html>Dica<html>");
+
         lblMensagem.setText("Status");
+
+        jLabel1.setText("Palavra:");
+
+        lblPalavra.setForeground(new java.awt.Color(255, 0, 0));
+        lblPalavra.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtResposta)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(29, 29, 29)
-                        .addComponent(lblPalavra)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(lblMensagem))
-                .addGap(49, 49, 49))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPalavra)
+                        .addGap(176, 176, 176))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMensagem)
+                            .addComponent(lblDica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblPalavra)
-                    .addComponent(lblMensagem))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtResposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lblPalavra))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblMensagem)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblDica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(txtResposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,11 +140,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         char letra = txtResposta.getText().charAt(0);
+        letra = Character.toUpperCase(letra);
         boolean acertou = false;
             
         for (int i = 0; i < palavra.length(); i++) {
             if (palavra.charAt(i) == letra) {
-                adivinhada = adivinhada.substring(0, i) + letra + adivinhada.substring(i + 1);
+                adivinhada = adivinhada.substring(0, i) + letra 
+                        + adivinhada.substring(i + 1);
                 lblPalavra.setText(adivinhada);
                 acertou = true;
             }
@@ -151,6 +199,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDica;
     private javax.swing.JLabel lblMensagem;
     private javax.swing.JLabel lblPalavra;
     private javax.swing.JTextField txtResposta;
