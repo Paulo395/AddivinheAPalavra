@@ -12,18 +12,19 @@ import java.util.Random;
  */
 public class Palavra {
     Random rand = new Random();
-    String[] arrayPalavras = {"Universidade","Apartamento","Cadeira","Corredor"
-            ,"Umidificador","Vaidade","Habilidade","Desastre","Felicidade"};
+    String[] arrayPalavras = {
+        "Estados","Alfabeto","Transiçoes","Determinismo","Minimizaçao",
+        "Equivalência","Fechamento","Complementaçao"};
     
-    String [] arrayDicas = {"Local de ensino superior.",
-        "Tipo de moradia que possui várias divisões.",
-        "Móvel utilizado para sentar.",
-        "Área de circulação entre cômodos em uma casa." , 
-        "Equipamento que aumenta a umidade do ar.",
-        "Excesso de amor próprio ou admiração por si mesmo.",
-        "Capacidade de realizar algo com destreza e maestria.",
-        "Evento ou situação catastrófica ou destrutiva.",
-        "Estado de contentamento."};
+    String [] arrayDicas = {
+        "Cada autômato tem uma quantidade finita deles",
+        "É um conjunto de símbolos que o autômato reconhece",
+        "São as mudanças de estado que acontecem com as entradas.",
+        "Como a AFD lida com múltiplas possibilidades de transição." , 
+        "É um processo de simplificação do autômato.",
+        "Verifica se duas AFDs descrevem a mesma linguagem secreta.",
+        "A habilidade da AFD de reconhecer várias palavras secretas.",
+        "A transformação que torna possível \"inverter\" a AFD"};
     
     int randomIndex = rand.nextInt(arrayPalavras.length);
     public String palavraAtual = arrayPalavras[randomIndex];
